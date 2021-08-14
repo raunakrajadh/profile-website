@@ -1,0 +1,58 @@
+<style>
+    html,
+    body {
+      height: 100%;
+    }
+    
+    body {
+      display: flex;
+      align-items: center;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: #f5f5f5;
+    }
+    
+    .form-signin {
+      width: 100%;
+      max-width: 330px;
+      padding: 15px;
+      margin: auto;
+    }
+    
+    .form-signin .checkbox {
+      font-weight: 400;
+    }
+    
+    .form-signin .form-floating:focus-within {
+      z-index: 2;
+    }
+    
+    .form-signin input[type="email"] {
+      margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    
+    .form-signin input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    </style>
+    
+    <body class="text-center">
+        
+    <main class="form-signin">
+      <form method="POST" action="/user/verify">
+        <img class="mb-4" src="https://www.kindpng.com/picc/m/78-785917_user-login-function-name-avatar-user-icon-hd.png" width="72" height="75">
+        <h1 class="h3 mb-3 fw-normal">Verify</h1>
+    
+        <div class="form-floating">
+          <input type="number" class="form-control" id="floatingVerify" placeholder="Verification Code" required name="verificationCode">
+          <label for="floatingVerify">Verification Code</label>
+        </div>
+    
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Verify</button>
+        <p class="mt-5 mb-3 text-muted"><%- status %></a></p>
+      </form>
+    </main>
