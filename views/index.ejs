@@ -33,16 +33,19 @@
     <nav id="navbar" class="navbar nav-menu">
       <ul>
         <li><a href="#hero" class="nav-link scrollto"><i class="bx bx-home"></i> <span>Home</span></a></li>
-        <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-cog"></i> <span>Skills</span></a></li>
+        <li><a href="#skills" class="nav-link scrollto"><i class="bx bx-brain"></i> <span>Skills</span></a></li>
         <li><a href="#blogs" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Blogs</span></a></li>
+
+        <% if(req.session.username == 'raunakrajadh'){ %>
+
+          <li><a href="/urlshortner" class="nav-link scrollto"><i class="bx bx-link"></i> <span>Url Shortner</span></a></li>
+
+        <% } %>
 
         <% if(req.session.isAuth){ %>
           
           <form id="logoutForm" method="POST" action="/user/logout">
             <li><a href="javascript:{}" onclick="document.getElementById('logoutForm').submit()" class="nav-link scrollto"><i class="bx bx-log-out"></i> <span>Logout</span></a></li>
-          </form>
-          <form id="deleteForm" method="POST" action="/user/deleteAccount">
-            <li><a href="javascript:{}" onclick="document.getElementById('deleteForm').submit()" class="nav-link scrollto"><i class="bx bx-box"></i> <span>Delete Account</span></a></li>
           </form>
           
         <% } else{ %>

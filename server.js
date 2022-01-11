@@ -5,12 +5,13 @@ const session = require('express-session')
 const MongoDBSession = require('connect-mongodb-session')(session)
 const methodOverride = require('method-override');
 
-const blog = require('./models/blog');
 const config = require('./config.json')
+const blog = require('./models/blog');
+
 const userRouter = require('./routes/user')
 const blogRouter = require('./routes/blogs');
 const redirectRouter = require('./routes/redirect')
-const aasthaRouter = require('./routes/aastha')
+const urlShortnerRouter = require('./routes/urlshortner')
 
 mongoose.connect(config.mongodb_url, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex  : true})
 .then(() => {console.log('Connected to mongoose!')})
@@ -24,9 +25,9 @@ let store = new MongoDBSession({uri: config.mongodb_url, collection: 'loginSessi
 app.use(session({secret: '_secret', resave: false, saveUninitialized: false, store: store}))
 
 app.use('/user', userRouter)
-app.use('/redirect', redirectRouter)
 app.use('/blogs', blogRouter)
-app.use('/aastha', aasthaRouter)
+app.use('/redirect', redirectRouter)
+app.use('/urlshortner', urlShortnerRouter)
 
 app.get('/', async (req, res) => {
     const blogs = await blog.find().sort({ createdAt: 'desc'})
