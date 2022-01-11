@@ -11,7 +11,7 @@ const blog = require('./models/blog');
 const userRouter = require('./routes/user')
 const blogRouter = require('./routes/blogs');
 const redirectRouter = require('./routes/redirect')
-const urlShortnerRouter = require('./routes/urlshortner')
+const shorturlRouter = require('./routes/shorturl')
 
 mongoose.connect(config.mongodb_url, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex  : true})
 .then(() => {console.log('Connected to mongoose!')})
@@ -27,7 +27,7 @@ app.use(session({secret: '_secret', resave: false, saveUninitialized: false, sto
 app.use('/user', userRouter)
 app.use('/blogs', blogRouter)
 app.use('/redirect', redirectRouter)
-app.use('/urlshortner', urlShortnerRouter)
+app.use('/shorturl', shorturlRouter)
 
 app.get('/', async (req, res) => {
     const blogs = await blog.find().sort({ createdAt: 'desc'})
