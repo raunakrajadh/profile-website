@@ -34,7 +34,7 @@ app.get('/', async (req, res) => {
     res.render('index', {req: req, blogs: blogs})
 })
 
-let port = process.env.PORT || 5000
+let port = process.env.PORT || 5000 || 8000
 
 app.listen(port, () => {
     console.log('Listening at port: ' + port)
