@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "ds": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,7 +19,7 @@
     "method-override": "^3.0.0",
     "mongoose": "^5.13.1",
     "nodemailer": "^6.6.2",
-    "nodemon": "^2.0.9",
+    "nodemon": "^2.0.22",
     "shortid": "^2.2.16",
     "slugify": "^1.5.3"
   }
