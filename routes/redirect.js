@@ -14,7 +14,7 @@ app.get('/twitter', (req, res) => {
 })
 
 app.get('/mydyno', (req, res) => {
-    res.redirect('https://mydyno.app/discord')
+    res.redirect('https://mydyno.app')
 })
 
 module.exports = app
