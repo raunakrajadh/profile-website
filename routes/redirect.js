@@ -13,8 +13,8 @@ app.get('/twitter', (req, res) => {
     res.redirect('https://twitter.com/raunakrajadh')
 })
 
-app.get('/mydyno', (req, res) => {
-    res.redirect('https://mydyno.app')
+app.get('/letbyte', (req, res) => {
+    res.redirect('https://letbyte.app')
 })
 
 module.exports = app
