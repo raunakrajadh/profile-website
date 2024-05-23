@@ -10,10 +10,8 @@ const blog = require('./models/blog');
 
 const userRouter = require('./routes/user')
 const blogRouter = require('./routes/blogs');
-const redirectRouter = require('./routes/redirect')
-const shorturlRouter = require('./routes/shorturl')
 
-mongoose.connect(config.mongodb_url, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex  : true})
+mongoose.connect(config.mongodb_url)
 .then(() => {console.log('Connected to mongoose!')})
 .catch((err) => {console.log('Couldn\'t connet to mongoose! Error: ' + err)})
 
@@ -26,16 +24,13 @@ app.use(session({secret: '_secret', resave: false, saveUninitialized: false, sto
 
 app.use('/user', userRouter)
 app.use('/blogs', blogRouter)
-app.use('/redirect', redirectRouter)
-app.use('/shorturl', shorturlRouter)
 
 app.get('/', async (req, res) => {
     const blogs = await blog.find().sort({ createdAt: 'desc'})
     res.render('index', {req: req, blogs: blogs})
 })
 
-let port = process.env.PORT || 5000 || 8000
-
+let port = process.env.PORT || 5000
 app.listen(port, () => {
     console.log('Listening at port: ' + port)
 })
